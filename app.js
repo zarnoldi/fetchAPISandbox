@@ -35,33 +35,25 @@ class UI{
 
 function getText() {
 
-    fetch('data/text.txt').then((res)=>{
-        return res.text();
-    }).then((data)=>{
-        UI.createUI(data); 
-    }).catch((err)=>{
-        console.log(err);
-    })
+    fetch('data/text.txt')
+        .then((res)=> res.text())
+        .then((data)=> UI.createUI(data))
+        .catch((err)=> console.log(err));
 }
 
 function getJSON() {
 
-    fetch('data/data.json').then((res)=>{
-        return res.json();
-    }).then((data)=>{
-        UI.createUI(data.name);
-    }).catch((err)=>{
-        console.log(err);
-    })
+    fetch('data/data.json')
+        .then((res)=> res.json())
+        .then((data)=> UI.createUI(data.name))
+        .catch((err)=> console.log(err));
 }
 
 function getAPI() {
-        fetch('https://jsonplaceholder.typicode.com/posts/1/comments').then((res)=>{
-            return res.json();
-        }).then((data)=>{
-            UI.createPostUI(data); 
-        }).catch((err)=>{
-            console.log(err);
-        })
+    
+    fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+        .then((res)=> res.json())
+        .then((data)=> UI.createPostUI(data))
+        .catch((err)=> console.log(err)); 
     
 }
